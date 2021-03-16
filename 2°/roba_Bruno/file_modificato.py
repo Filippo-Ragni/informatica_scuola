@@ -1,10 +1,9 @@
-# fa in modo che il mostro non possa uscire dalla griglia
 class Entity:
-  def __init__(self, x, y, field): #inizializzando l'istanza con il costruttore init
+  def __init__(self, x, y, field): 
     self.x = x
     self.y = y
     self.field = field
-    self.field.entities.append(self) #aggiungo entity al field
+    self.field.entities.append(self) 
 
   def move(self, direction):
     if direction == "up":
@@ -16,7 +15,7 @@ class Entity:
     elif direction == "left":
       self.x -= 1
 
-  def controllo(self):
+  def corners(self):
     if self.x > self.field.w:
       print("l'entità non può muoversi più a destra")
       self.x -= 1
@@ -34,7 +33,7 @@ class Monster(Entity):
   def __init__(self, x, y, name, damage, field):
     super().__init__(x, y, field)
     self.name = name 
-    self.hp = 20 # vita
+    self.hp = 20 
     self.damage = damage
 
   def info(self):
@@ -64,22 +63,41 @@ class Field:
           if x + 1 == e.x and y + 1 == e.y:
             print("[+]", end = "")
             break
-        else: # nel ciclo for di e
+        else: 
           print("[ ]", end = "")
       print()
 
-field = Field() # creo il campo
+field = Field() 
 m = Monster(2, 2, "Paolo", 10, field)
 m1 = Monster(1, 1, "Giorgio", 10, field)
-field.draw() # disegno il campo
+m.info()
+m1.info()
+field.draw()
 
-for n in range(5): # se faccio questo esce dalla griglia
+for n in range(5):
   print()
   m.move("down")
-  m.controllo()
+  m.corners()
+  m.info()
+  m1.info()
   field.draw()
 
 print()
 m1.move("down")
-m1.controllo()
+m1.corners()
+m.info()
+m1.info()
+field.draw()
+
+for a in range(3):
+  print()
+  m.attack(m1)
+  m.info()
+  m1.info()
+  field.draw()
+
+print()
+m1.attack(m)
+m.info()
+m1.info()
 field.draw()
