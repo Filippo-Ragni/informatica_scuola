@@ -13,9 +13,9 @@ class king(piece):
     def __init__(self, x, y, colour, board, pi):
         super().__init__(x, y, colour, board, pi)
 
-    def move(self, a, o):
-        ta = a
-        to = o
+    def move(self):
+        ta = int(input("x : "))
+        to = int(input("y : "))
         print()
         while True:
             if self.x == ta and self.y == to:
@@ -33,8 +33,8 @@ class king(piece):
                     if p.x == ta and p.y == to and p.colour != self.colour:
                         counter += 1
                         self.board.pieces.remove(p)
-                        self.x = a
-                        self.y = o
+                        self.x = ta
+                        self.y = to
                         break
                     elif p.x == ta and p.y == to and p.colour == self.colour:
                         counter += 1
@@ -52,8 +52,8 @@ class king(piece):
                     if p.x == ta and p.y == to and p.colour != self.colour:
                         counter += 1
                         self.board.pieces.remove(p)
-                        self.x = a
-                        self.y = o
+                        self.x = ta
+                        self.y = to
                         break
                     elif p.x == ta and p.y == to and p.colour == self.colour:
                         counter += 1
@@ -71,8 +71,8 @@ class king(piece):
                     if p.x == ta and p.y == to and p.colour != self.colour:
                         counter += 1
                         self.board.pieces.remove(p)
-                        self.x = a
-                        self.y = o
+                        self.x = ta
+                        self.y = to
                         break
                     elif p.x == ta and p.y == to and p.colour == self.colour:
                         counter += 1
@@ -90,8 +90,8 @@ class king(piece):
                     if p.x == ta and p.y == to and p.colour != self.colour:
                         counter += 1
                         self.board.pieces.remove(p)
-                        self.x = a
-                        self.y = o
+                        self.x = ta
+                        self.y = to
                         break
                     elif p.x == ta and p.y == to and p.colour == self.colour:
                         counter += 1
@@ -109,8 +109,8 @@ class king(piece):
                     if p.x == ta and p.y == to and p.colour != self.colour:
                         counter += 1
                         self.board.pieces.remove(p)
-                        self.x = a
-                        self.y = o
+                        self.x = ta
+                        self.y = to
                         break
                     elif p.x == ta and p.y == to and p.colour == self.colour:
                         counter += 1
@@ -128,8 +128,8 @@ class king(piece):
                     if p.x == ta and p.y == to and p.colour != self.colour:
                         counter += 1
                         self.board.pieces.remove(p)
-                        self.x = a
-                        self.y = o
+                        self.x = ta
+                        self.y = to
                         break
                     elif p.x == ta and p.y == to and p.colour == self.colour:
                         counter += 1
@@ -147,8 +147,8 @@ class king(piece):
                     if p.x == ta and p.y == to and p.colour != self.colour:
                         counter += 1
                         self.board.pieces.remove(p)
-                        self.x = a
-                        self.y = o
+                        self.x = ta
+                        self.y = to
                         break
                     elif p.x == ta and p.y == to and p.colour == self.colour:
                         counter += 1
@@ -166,8 +166,8 @@ class king(piece):
                     if p.x == ta and p.y == to and p.colour != self.colour:
                         counter += 1
                         self.board.pieces.remove(p)
-                        self.x = a
-                        self.y = o
+                        self.x = ta
+                        self.y = to
                         break
                     elif p.x == ta and p.y == to and p.colour == self.colour:
                         counter += 1
@@ -190,9 +190,9 @@ class queen(piece):
     def __init__(self, x, y, colour, board, pi):
         super().__init__(x, y, colour, board, pi)
 
-    def move(self, a, o):
-        ta = a
-        to = o
+    def move(self):
+        ta = int(input("x : "))
+        to = int(input("y : "))
         print()
         while True:
             if self.x == ta and self.y == to:
@@ -227,8 +227,8 @@ class queen(piece):
                         if p.x == ta and p.y == to and p.colour != self.colour:
                             counter += 1
                             self.board.pieces.remove(p)
-                            self.x = a
-                            self.y = o
+                            self.x = ta
+                            self.y = to
                             break
                         elif p.x == ta and p.y == to and p.colour == self.colour:
                             counter += 1
@@ -261,8 +261,8 @@ class queen(piece):
                         if p.x == ta and p.y == to and p.colour != self.colour:
                             counter += 1
                             self.board.pieces.remove(p)
-                            self.x = a
-                            self.y = o
+                            self.x = ta
+                            self.y = to
                             break
                         elif p.x == ta and p.y == to and p.colour == self.colour:
                             counter += 1
@@ -293,8 +293,8 @@ class queen(piece):
                         if p.x == ta and p.y == to and p.colour != self.colour:
                             counter += 1
                             self.board.pieces.remove(p)
-                            self.x = a
-                            self.y = o
+                            self.x = ta
+                            self.y = to
                             break
                         elif p.x == ta and p.y == to and p.colour == self.colour:
                             counter += 1
@@ -325,8 +325,8 @@ class queen(piece):
                         if p.x == ta and p.y == to and p.colour != self.colour:
                             counter += 1
                             self.board.pieces.remove(p)
-                            self.x = a
-                            self.y = o
+                            self.x = ta
+                            self.y = to
                             break
                         elif p.x == ta and p.y == to and p.colour == self.colour:
                             counter += 1
@@ -349,9 +349,9 @@ class rook(piece):
     def __init__(self, x, y, colour, board, pi):
         super().__init__(x, y, colour, board, pi)
 
-    def move(self, a, o):
-        ta = a
-        to = o
+    def move(self):
+        ta = int(input("x : "))
+        to = int(input("y : "))
         print()
         while True:
             if self.x == ta and self.y == to:
@@ -386,8 +386,8 @@ class rook(piece):
                         if p.x == ta and p.y == to and p.colour != self.colour:
                             counter += 1
                             self.board.pieces.remove(p)
-                            self.x = a
-                            self.y = o
+                            self.x = ta
+                            self.y = to
                             break
                         elif p.x == ta and p.y == to and p.colour == self.colour:
                             counter += 1
@@ -420,8 +420,8 @@ class rook(piece):
                         if p.x == ta and p.y == to and p.colour != self.colour:
                             counter += 1
                             self.board.pieces.remove(p)
-                            self.x = a
-                            self.y = o
+                            self.x = ta
+                            self.y = to
                             break
                         elif p.x == ta and p.y == to and p.colour == self.colour:
                             counter += 1
@@ -444,9 +444,9 @@ class bishop(piece):
     def __init__(self, x, y, colour, board, pi):
         super().__init__(x, y, colour, board, pi)
 
-    def move(self, a, o):
-        ta = a
-        to = o
+    def move(self):
+        ta = int(input("x : "))
+        to = int(input("y : "))
         print()
         while True:
             if self.x == ta and self.y == to:
@@ -477,8 +477,8 @@ class bishop(piece):
                         if p.x == ta and p.y == to and p.colour != self.colour:
                             counter += 1
                             self.board.pieces.remove(p)
-                            self.x = a
-                            self.y = o
+                            self.x = ta
+                            self.y = to
                             break
                         elif p.x == ta and p.y == to and p.colour == self.colour:
                             counter += 1
@@ -509,8 +509,8 @@ class bishop(piece):
                         if p.x == ta and p.y == to and p.colour != self.colour:
                             counter += 1
                             self.board.pieces.remove(p)
-                            self.x = a
-                            self.y = o
+                            self.x = ta
+                            self.y = to
                             break
                         elif p.x == ta and p.y == to and p.colour == self.colour:
                             counter += 1
@@ -533,9 +533,9 @@ class knight(piece):
     def __init__(self, x, y, colour, board, pi):
         super().__init__(x, y, colour, board, pi)
 
-    def move(self, a, o):
-        ta = a
-        to = o
+    def move(self):
+        ta = int(input("x : "))
+        to = int(input("y : "))
         print()
         while True:
             if self.x == ta and self.y == to:
@@ -553,8 +553,8 @@ class knight(piece):
                     if p.x == ta and p.y == to and p.colour != self.colour:
                         counter += 1
                         self.board.pieces.remove(p)
-                        self.x = a
-                        self.y = o
+                        self.x = ta
+                        self.y = to
                         break
                     elif p.x == ta and p.y == to and p.colour == self.colour:
                         counter += 1
@@ -572,8 +572,8 @@ class knight(piece):
                     if p.x == ta and p.y == to and p.colour != self.colour:
                         counter += 1
                         self.board.pieces.remove(p)
-                        self.x = a
-                        self.y = o
+                        self.x = ta
+                        self.y = to
                         break
                     elif p.x == ta and p.y == to and p.colour == self.colour:
                         counter += 1
@@ -591,8 +591,8 @@ class knight(piece):
                     if p.x == ta and p.y == to and p.colour != self.colour:
                         counter += 1
                         self.board.pieces.remove(p)
-                        self.x = a
-                        self.y = o
+                        self.x = ta
+                        self.y = to
                         break
                     elif p.x == ta and p.y == to and p.colour == self.colour:
                         counter += 1
@@ -610,8 +610,8 @@ class knight(piece):
                     if p.x == ta and p.y == to and p.colour != self.colour:
                         counter += 1
                         self.board.pieces.remove(p)
-                        self.x = a
-                        self.y = o
+                        self.x = ta
+                        self.y = to
                         break
                     elif p.x == ta and p.y == to and p.colour == self.colour:
                         counter += 1
@@ -629,8 +629,8 @@ class knight(piece):
                     if p.x == ta and p.y == to and p.colour != self.colour:
                         counter += 1
                         self.board.pieces.remove(p)
-                        self.x = a
-                        self.y = o
+                        self.x = ta
+                        self.y = to
                         break
                     elif p.x == ta and p.y == to and p.colour == self.colour:
                         counter += 1
@@ -648,8 +648,8 @@ class knight(piece):
                     if p.x == ta and p.y == to and p.colour != self.colour:
                         counter += 1
                         self.board.pieces.remove(p)
-                        self.x = a
-                        self.y = o
+                        self.x = ta
+                        self.y = to
                         break
                     elif p.x == ta and p.y == to and p.colour == self.colour:
                         counter += 1
@@ -667,8 +667,8 @@ class knight(piece):
                     if p.x == ta and p.y == to and p.colour != self.colour:
                         counter += 1
                         self.board.pieces.remove(p)
-                        self.x = a
-                        self.y = o
+                        self.x = ta
+                        self.y = to
                         break
                     elif p.x == ta and p.y == to and p.colour == self.colour:
                         counter += 1
@@ -686,8 +686,8 @@ class knight(piece):
                     if p.x == ta and p.y == to and p.colour != self.colour:
                         counter += 1
                         self.board.pieces.remove(p)
-                        self.x = a
-                        self.y = o
+                        self.x = ta
+                        self.y = to
                         break
                     elif p.x == ta and p.y == to and p.colour == self.colour:
                         counter += 1
@@ -734,7 +734,7 @@ class pond(piece):
                 to = int(input("y : "))
                 break
             elif self.colour == "w" and to < self.y:
-                elif ta == self.x and self.y - 1 == to:
+                if ta == self.x and self.y - 1 == to:
                     counter = 0
                     for p in self.board.pieces:
                         if p.x == ta and p.y == to:
@@ -753,8 +753,8 @@ class pond(piece):
                         if p.x == ta and p.y == to and p.colour != self.colour:
                             counter += 1
                             self.board.pieces.remove(p)
-                            self.x = a
-                            self.y = o
+                            self.x = ta
+                            self.y = to
                             break
                         elif p.x == ta and p.y == to and p.colour == self.colour:
                             counter += 1
@@ -772,8 +772,8 @@ class pond(piece):
                         if p.x == ta and p.y == to and p.colour != self.colour:
                             counter += 1
                             self.board.pieces.remove(p)
-                            self.x = a
-                            self.y = o
+                            self.x = ta
+                            self.y = to
                             break
                         elif p.x == ta and p.y == to and p.colour == self.colour:
                             counter += 1
@@ -792,7 +792,7 @@ class pond(piece):
                     to = int(input("y : "))
                 print()
             elif self.colour == "b" and to > self.y:
-                elif ta == self.x and self.y + 1 == to:
+                if ta == self.x and self.y + 1 == to:
                     counter = 0
                     for p in self.board.pieces:
                         if p.x == ta and p.y == to:
@@ -811,8 +811,8 @@ class pond(piece):
                         if p.x == ta and p.y == to and p.colour != self.colour:
                             counter += 1
                             self.board.pieces.remove(p)
-                            self.x = a
-                            self.y = o
+                            self.x = ta
+                            self.y = to
                             break
                         elif p.x == ta and p.y == to and p.colour == self.colour:
                             counter += 1
@@ -830,8 +830,8 @@ class pond(piece):
                         if p.x == ta and p.y == to and p.colour != self.colour:
                             counter += 1
                             self.board.pieces.remove(p)
-                            self.x = a
-                            self.y = o
+                            self.x = ta
+                            self.y = to
                             break
                         elif p.x == ta and p.y == to and p.colour == self.colour:
                             counter += 1
@@ -908,6 +908,26 @@ bp7 = pond(7, 2, "b", c_board, "p")
 bp8 = pond(8, 2, "b", c_board, "p")
 
 c_board.draw()
+print("le cordinate sia delle ascisse che delle ordinate vanno da 1 a 8 partendo:")
+print("per le ascisse da sinistra a destra")
+print("per le ordinate dall'alto al basso")
+print()
+print("parte il bianco si selezionano le cordinate della pedina che si vuole muovere")
+print("si continua finchè non saranno inserite delle cordinate valide poi tocca all'altro")
 print()
 
-
+while wk in c_board.pieces and bk in c_board.pieces:
+    if wk not in c_board.pieces:
+        print("ha vinto il nero!")
+        break
+    elif bk not in c_board.pieces:
+        print("ha vinto il bianco!")
+        break
+    else:
+        c_x = int(input("x : "))
+        c_y = int(input("y : "))
+        for piec in c_board.pieces:
+            if piec.x == c_x and piec.y == c_y:
+                piec.move()
+        c_board.draw()
+        print()
