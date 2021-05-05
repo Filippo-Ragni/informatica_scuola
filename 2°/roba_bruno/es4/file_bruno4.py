@@ -3,13 +3,22 @@ from random import choice
 
 DIRECTIONS = "up", "down", "left", "right"
 
+def clear_screen():
+    if os.name == "nt":
+        os.system("cls")
+    else:
+        os.system("clear")
 class Entity: 
     def __init__(self, x, y, field, graphic):
         self.x = x
         self.y = y
+        self.graphic = graphic
+        if field != None:
+            self.add_to_field(field)
+
+    def add_to_field(self, field):
         self.field = field
         self.field.entities.append(self)
-        self.graphic = graphic
 
     def move(self, direction):
         futureX = self.x
@@ -100,12 +109,21 @@ class Player(Living_Entity):
             self.field.entities.remove(entity)
 
 class Field:
-    def __init__(self, level_number):
+    def __init__(self, level_number, player):
         self.entities = []
         self.score = 0
         self.level_number = level_number
-    
-        f = open("./level" + str(level_number) + ".level", "r")
+        self.player = player
+
+    def has_gold(self):
+        for e in self.entities:
+            if isinstance(e, Gold):
+                return True
+        
+        return False
+
+    def load_level(self):
+        f = open("./level" + str(self.level_number) + ".level", "r")
         rows = f.read().split("\n")
         f.close()
 
@@ -117,7 +135,9 @@ class Field:
             for x in range(self.w):
                 char = row[x]
                 if char == "p":
-                    self.player = Player(x, y, "Player", self)
+                    self.player.x = x
+                    self.player.y = y
+                    self.player.add_to_field(self)
                 elif char == "#":
                     Wall(x, y, self)
                 elif char == "$":
@@ -148,24 +168,65 @@ class Field:
         for e in self.entities:
             e.update()
 
-field = Field(2)
-
-def clear_screen():
-    if os.name == "nt":
-        os.system("cls")
-    else:
-        os.system("clear")
+class Game:
+    def __init__(self, levels):
+        # self.score = 0
+        self.player = Player(0, 0, "Player", None)
+        self.fields = []
+        self.levels = levels
+        for i in range(1, levels + 1):
+            self.fields.append(Field(i, self.player))
         
+        self.current_field = None
+        self.current_level_index = -1
+        self.status = "STOPPED"
+
+    def next_level(self):
+        self.status = "RUNNING"
+        if self.current_level_index < self.levels - 1:
+            self.current_level_index += 1
+            self.current_field = self.fields[self.current_level_index]
+            self.current_field.load_level()
+        else:
+            self.win()
+
+    def win(self):
+        clear_screen()
+        self.status = "STOPPED"
+        print("THE WINNER IS YOU!")
+
+    def game_over(self):
+        clear_screen()
+        self.status = "STOPPED"
+        print("GAME OVER!")
+
+    def update(self):
+        if self.status == "RUNNING":
+            self.current_field.update()
+            if self.player.hp <= 0:
+                self.game_over()
+
+            if self.current_field.has_gold() == False:
+                self.next_level()
+    
+    def draw(self):
+        if self.status == "RUNNING":
+            self.current_field.draw()
+
+game = Game(4)
+game.next_level()
+
 clear_screen()
 while True:    
-    field.update()
-    field.draw()
+    game.update()
+    game.draw()
 
     command = input("input: ").lower()
     clear_screen()
 
     if command == "q": break
-    elif command == "w": field.player.move("up")
-    elif command == "a": field.player.move("left")
-    elif command == "s": field.player.move("down")
-    elif command == "d": field.player.move("right")
+    elif command == "w": game.player.move("up")
+    elif command == "a": game.player.move("left")
+    elif command == "s": game.player.move("down")
+    elif command == "d": game.player.move("right")
+    elif command == "z": game.next_level()
